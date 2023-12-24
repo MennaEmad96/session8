@@ -43,20 +43,19 @@
 
         <div class="collapse navbar-collapse ml-auto" id="navbarSupportedContent">
             <ul class="navbar-nav  ">
-            <!-- {{ $data->published ? "Yes" : "No" }} -->
-            <li class="nav-item @if(isset(route(index))){active}@endif">
+            <li class="nav-item {{ request()->is('index') ? 'active' : ''}}">
                 <a class="nav-link" href="{{ route('index') }}">Home <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item {{ request()->is('about') ? 'active' : ''}}">
                 <a class="nav-link" href="{{ route('about') }}"> About</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item {{ request()->is('service') ? 'active' : ''}}">
                 <a class="nav-link" href="{{ route('service') }}"> Services </a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item {{ request()->is('guard') ? 'active' : ''}}">
                 <a class="nav-link" href="{{ route('guard') }}"> Guards </a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item {{ request()->is('contact') ? 'active' : ''}}">
                 <a class="nav-link" href="{{ route('contact') }}">Contact us</a>
             </li>
             </ul>
