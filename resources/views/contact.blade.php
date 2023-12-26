@@ -1,5 +1,9 @@
 @extends('layouts.pages')
 
+@section('title')
+    Contact
+@endsection
+
 @section('content')
     <!-- contact section -->
     @include('includes.contact')

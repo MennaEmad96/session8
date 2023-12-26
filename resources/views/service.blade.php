@@ -1,5 +1,9 @@
 @extends('layouts.pages')
 
+@section('title')
+    Service
+@endsection
+
 @section('content')
     <!-- service section -->
     @include('includes.service')

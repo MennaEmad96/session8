@@ -1,5 +1,9 @@
 @extends('layouts.pages')
 
+@section('title')
+    Guard
+@endsection
+
 @section('content')
     <!-- team section -->
     @include('includes.team')
