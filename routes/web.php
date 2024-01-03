@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,22 +18,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('index', function () {
-    return view('index');
-})->name('index');
 
-Route::get('about', function () {
-    return view('about');
-})->name('about');
+//page routes
+Route::get('index',[PageController::class,'index'])->middleware('verified')->name('index');
+Route::get('about',[PageController::class,'about'])->name('about');
+Route::get('contact',[PageController::class,'contact'])->name('contact');
+Route::get('guard',[PageController::class,'guard'])->name('guard');
+Route::get('service',[PageController::class,'service'])->name('service');
 
-Route::get('contact', function () {
-    return view('contact');
-})->name('contact');
 
-Route::get('guard', function () {
-    return view('guard');
-})->name('guard');
-
-Route::get('service', function () {
-    return view('service');
-})->name('service');
+Auth::routes(['verify'=>true]);
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
