@@ -44,20 +44,28 @@
         <div class="collapse navbar-collapse ml-auto" id="navbarSupportedContent">
             <ul class="navbar-nav  ">
             <li class="nav-item {{ request()->is('index') ? 'active' : ''}}">
-                <a class="nav-link" href="{{ route('index') }}">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="{{ route('index') }}">{{ __('contact.home') }}<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item {{ request()->is('about') ? 'active' : ''}}">
-                <a class="nav-link" href="{{ route('about') }}"> About</a>
+                <a class="nav-link" href="{{ route('about') }}">{{ __('contact.about') }}</a>
             </li>
             <li class="nav-item {{ request()->is('service') ? 'active' : ''}}">
-                <a class="nav-link" href="{{ route('service') }}"> Services </a>
+                <a class="nav-link" href="{{ route('service') }}">{{ __('contact.services') }}</a>
             </li>
             <li class="nav-item {{ request()->is('guard') ? 'active' : ''}}">
-                <a class="nav-link" href="{{ route('guard') }}"> Guards </a>
+                <a class="nav-link" href="{{ route('guard') }}">{{ __('contact.guards') }}</a>
             </li>
             <li class="nav-item {{ request()->is('contact') ? 'active' : ''}}">
-                <a class="nav-link" href="{{ route('contact') }}">Contact us</a>
+                <a class="nav-link" href="{{ route('contact') }}">{{ __('contact.contactUs') }}</a>
             </li>
+
+            <li class="nav-item ">
+                <a class="nav-link" href="{{ LaravelLocalization::getLocalizedURL('en') }}">{{ __('contact.english') }}</a>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link" href="{{ LaravelLocalization::getLocalizedURL('ar') }}">{{ __('contact.arabic') }}</a>
+            </li>
+
             </ul>
         </div>
         </nav>

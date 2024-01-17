@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="{{LaravelLocalization::getCurrentLocale()}}" dir="{{ LaravelLocalization::getCurrentLocaleDirection() }}">
+    
 <head>
     @include('includes.head')
 </head>

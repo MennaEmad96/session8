@@ -18,14 +18,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
-//page routes
-Route::get('index',[PageController::class,'index'])->middleware('verified')->name('index');
-Route::get('about',[PageController::class,'about'])->name('about');
-Route::get('contact',[PageController::class,'contact'])->name('contact');
-Route::get('guard',[PageController::class,'guard'])->name('guard');
-Route::get('service',[PageController::class,'service'])->name('service');
-
+Route::group(
+    [
+        'prefix' => LaravelLocalization::setLocale(),
+        'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
+    ], function(){
+    //page routes
+    Route::get('index',[PageController::class,'index'])->name('index');
+    Route::get('about',[PageController::class,'about'])->name('about');
+    Route::get('contact',[PageController::class,'contact'])->name('contact');
+    Route::get('guard',[PageController::class,'guard'])->name('guard');
+    Route::get('service',[PageController::class,'service'])->name('service');
+});
 
 Auth::routes(['verify'=>true]);
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
